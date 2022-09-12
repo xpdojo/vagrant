@@ -1,4 +1,4 @@
-# 반복문으로 동일한 VM 생성
+# 여러 개의 VM 생성
 
 ## 생성 및 실행
 
@@ -18,10 +18,10 @@ ee85047  node-2 virtualbox running /home/markruler/xpdojo/vagrant/2_multiple_nod
 ```
 
 ```sh
-# vagrant ssh 19e
+# vagrant ssh a36
 vagrant ssh node-1
 
-# vagrant ssh 87c
+# vagrant ssh ee8
 vagrant ssh node-2
 ```
 
@@ -29,4 +29,5 @@ vagrant ssh node-2
 
 ```sh
 vagrant destroy --graceful --parallel
+vagrant global-status --prune
 ```
