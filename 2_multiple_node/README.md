@@ -1,4 +1,4 @@
-# Single VM 생성
+# 반복문으로 동일한 VM 생성
 
 ## 생성 및 실행
 
@@ -13,12 +13,16 @@ vagrant up
 > vagrant global-status
 id       name   provider   state   directory
 --------------------------------------------------------------------------
-6088cb4  node-1 virtualbox running /home/markruler/xpdojo/vagrant/1_single_node 
+a3686bb  node-1 virtualbox running /home/markruler/xpdojo/vagrant/2_multiple_node 
+ee85047  node-2 virtualbox running /home/markruler/xpdojo/vagrant/2_multiple_node
 ```
 
 ```sh
-# vagrant ssh 608
+# vagrant ssh 19e
 vagrant ssh node-1
+
+# vagrant ssh 87c
+vagrant ssh node-2
 ```
 
 ## 제거

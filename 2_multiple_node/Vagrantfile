@@ -1,0 +1,33 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+ENV["LANG"] = "en_US.UTF-8"
+
+# [Configuration version](https://www.vagrantup.com/docs/v2.3.0/vagrantfile/version)
+Vagrant.configure("2") do |config|
+  config.vm.provision "shell", inline: "echo Start!"
+
+  # https://www.vagrantup.com/docs/providers/virtualbox/configuration
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = false
+    vb.cpus = "2"
+    vb.memory = "2048"
+  end
+
+    # https://www.vagrantup.com/docs/vagrantfile/machine_settings
+  config.vm.define "node-1" do |node|
+    node.vm.hostname = "node-1"
+    # https://app.vagrantup.com/boxes/search
+    node.vm.box = "centos/7"
+    # https://www.vagrantup.com/docs/networking/private_network
+    node.vm.network "private_network", ip: "192.168.56.10"
+    node.vm.provision "shell", inline: "echo Hello!"
+  end
+ 
+  config.vm.define "node-2" do |node|
+    node.vm.hostname = "node-2"
+    node.vm.box = "centos/7"
+    node.vm.network "private_network", ip: "192.168.56.11"
+    node.vm.provision "shell", inline: "echo Hello!"
+  end
+end
